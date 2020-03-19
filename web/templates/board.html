@@ -12,14 +12,19 @@
   </head>
   
   <body>
-      <div class="ui">
-        <nav class="navbar app">
+      <div class="ui" id="ui">
+        <nav class="navbar app" id="navbar">
+            <div>Trello focus</div>
+            <p>Trello card style</p>
             <label class="switch">
                 <input type="checkbox" 
                        onclick="window.location.replace("{{ url_for('focus') }}"+"?"+"token="+"{{ token }}"+"&"+"embed="+document.getElementById("embed").value)" 
                        id="embed" {% if embed %}checked{% endif %}>
                 <span class="slider round"></span>
             </label>
+            <p>Color scheme</p>
+            <div class="box red" 
+                 onclick="document.getElementById('ui').style.backgroundColor=#FF0000;"></div>
         </nav>
         <div class="lists">
             {% for board in boards %}

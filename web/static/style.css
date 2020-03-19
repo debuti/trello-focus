@@ -33,7 +33,7 @@ body {
   display: -webkit-box;
   display: flex;
   overflow-x: auto;
-  height: 100vh;
+  height: calc(100% - 40px);
 }
 .lists > * {
   -webkit-box-flex: 0;
@@ -157,4 +157,19 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+.box{
+	width:100px;
+	height:100px;
+}
+ 
+.red{
+	background:#f00;
+}
+.green{
+	background:#0f0;
+}
+.blue{
+	background:#00f;
 }
