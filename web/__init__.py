@@ -24,7 +24,7 @@ def oauthr():
 @app.route('/focus')
 def focus():
     token = request.args.get('token', type=str)
-    token = request.args.get('embed', "false", type=str)
+    embed = request.args.get('embed', "false", type=str)
 
     x = requests.get("https://api.trello.com/1/members/me/boards/",
                       params = {'key': appkey, 'token': token})
@@ -45,7 +45,5 @@ def focus():
             board["cards"].append({'id': citem["id"], 'url': citem["shortUrl"], 'name': citem["name"]})        
         if len(board["cards"]) > 0:
           boards.append(board)
-      
-    print(boards)
-    sys.stdout.flush()
-    return render_template('board.html', boards=boards)
+
+    return render_template('board.html', boards=boards, token=token, embed=(False if embed=="false" else True))
