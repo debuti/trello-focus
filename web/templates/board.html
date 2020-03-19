@@ -11,10 +11,11 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
     <script>
     function onClickHandler(){
-        window.location.replace("{{ url_for('focus') }}"+"?"+"token="+"{{ token }}"+"&"+"embed="+document.getElementById("embed").value)
+        window.location.replace("{{ url_for('focus') }}"+"?"+"token="+"{{ token }}"+"&"+"embed="+document.getElementById("embed").checked)
     }
     function changeColorScheme(principal, secondary){
-        document.getElementById('ui').style.backgroundColor="#FF0000";
+        document.getElementById('ui').style.backgroundColor=principal;
+        document.getElementById('navbar').style.backgroundColor=secondary;
     }
     </script>
   </head>
@@ -29,16 +30,16 @@
             <div style="font-size: 0.7em;">Trello card style</div>
             &nbsp;
             <label class="switch">
-                <input type="checkbox" 
-                       onclick="onClickHandler()"
-                       id="embed" {% if embed %}checked{% endif %}>
+                <input type="checkbox" onclick="onClickHandler()" id="embed" {% if embed %}checked{% endif %}>
                 <span class="slider round"></span>
             </label>
             &nbsp;
             &nbsp;
             <div style="font-size: 0.7em;">Color scheme</div>
             &nbsp;
-            <div class="box red" onclick='changeColorScheme("#FF0000", "#FF0000")'></div>
+            <div class="box" style="background:#009999;" onclick='changeColorScheme("#009999", "#006666")'></div>
+            <div class="box" style="background:#cc0000;" onclick='changeColorScheme("#cc0000", "#993333")'></div>
+            <div class="box" style="background:#0033cc;" onclick='changeColorScheme("#0033cc", "#003399")'></div>
         </nav>
         <div class="lists">
             {% for board in boards %}

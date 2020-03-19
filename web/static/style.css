@@ -165,12 +165,3 @@ input:checked + .slider:before {
     border-radius:5px;
 }
  
-.red{
-	background:#f00;
-}
-.green{
-	background:#0f0;
-}
-.blue{
-	background:#00f;
-}
