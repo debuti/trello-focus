@@ -24,6 +24,7 @@ def oauthr():
 @app.route('/focus')
 def focus():
     token = request.args.get('token', type=str)
+    token = request.args.get('embed', "false", type=str)
 
     x = requests.get("https://api.trello.com/1/members/me/boards/",
                       params = {'key': appkey, 'token': token})

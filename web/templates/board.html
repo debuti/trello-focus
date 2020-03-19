@@ -8,7 +8,7 @@
 
 	<link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon" />
 
-    <!--script src="https://p.trellocdn.com/embed.min.js"></script-->
+    <script src="https://p.trellocdn.com/embed.min.js"></script>
 	
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto|PT+Mono'>
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
@@ -16,21 +16,24 @@
   
   <body>
 	  <div class="ui">
-		<!--nav class="navbar app"><a href="https://trello-focus.herokuapp.com/">Trello focus</a></nav-->
+		<nav class="navbar app"><a href="https://trello-focus.herokuapp.com/">Trello focus</a></nav>
 		<div class="lists">
 			{% for board in boards %}
 				<div class="list">
 					<header onclick=" window.open('{{ board.url }}','_blank')">{{ board.name }}</header>
 					<ul>
 				{% for card in board.cards %}
-				<li onclick=" window.open('{{ card.url }}','_blank')">
-					{{ card.name }}
-				</li>
-				<!--li>
-					<blockquote class="trello-card-compact">
-					  <a href="{{ card.url }}">{{ card.name }}</a>
-					</blockquote>		  
-				</li-->
+                    {% if embed %}
+                        <li>
+                            <blockquote class="trello-card-compact">
+                              <a href="{{ card.url }}">{{ card.name }}</a>
+                            </blockquote>		  
+                        </li>
+                    {% else %}
+                        <li onclick=" window.open('{{ card.url }}','_blank')">
+                            {{ card.name }}
+                        </li>
+                    {% endif %}
 				{% endfor %}
 					</ul>
 					<footer>&nbsp;</footer>
