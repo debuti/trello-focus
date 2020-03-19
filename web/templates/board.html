@@ -9,20 +9,16 @@
     <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon" />
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto|PT+Mono'>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
-    
-    <script>
-    function onChangeHandler(){
-        ;
-        window.location.replace("{{ url_for('focus') }}"+"?"+"token="+"{{ token }}"+"&"+"embed="+document.getElementById("embed").value)
-    }
-    </script>
   </head>
   
   <body>
       <div class="ui">
         <nav class="navbar app">
             <label class="switch">
-                <input id="embed" type="checkbox" onchange="onChangeHandler()" {% if embed %}checked{% endif %}>
+                <input id="embed" 
+                       type="checkbox" 
+                       onclick="window.location.replace("{{ url_for('focus') }}"+"?"+"token="+"{{ token }}"+"&"+"embed="+document.getElementById("embed").value)" 
+                       {% if embed %}checked{% endif %}>
                 <span class="slider round"></span>
             </label>
         </nav>
