@@ -15,10 +15,9 @@
       <div class="ui">
         <nav class="navbar app">
             <label class="switch">
-                <input id="embed" 
-                       type="checkbox" 
+                <input type="checkbox" 
                        onclick="window.location.replace("{{ url_for('focus') }}"+"?"+"token="+"{{ token }}"+"&"+"embed="+document.getElementById("embed").value)" 
-                       {% if embed %}checked{% endif %}>
+                       id="embed" {% if embed %}checked{% endif %}>
                 <span class="slider round"></span>
             </label>
         </nav>
