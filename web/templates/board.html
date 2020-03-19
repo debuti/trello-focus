@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Trello focus</title>
+
+	<link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+    <script src="https://p.trellocdn.com/embed.min.js"></script>
+	
+<link rel="apple-touch-icon" type="image/png" href="https://static.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
+<meta name="apple-mobile-web-app-title" content="CodePen">
+<link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+<link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto|PT+Mono'>
+<style>
+/* Some Sass variables */
+body {
+  margin: 0;
+  font-family: 'Roboto';
+  font-size: 14px;
+  line-height: 1.3em;
+}
+
+.ui {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 40px 50px 1fr;
+  background-color: #009999;
+  color: #eee;
+}
+
+.navbar {
+  padding-left: 10px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+}
+.navbar.app {
+  background-color: #006666;
+  font-size: 1.5rem;
+}
+.navbar.board {
+  font-size: 1.1rem;
+}
+
+.lists {
+  display: -webkit-box;
+  display: flex;
+  overflow-x: auto;
+  height: 100vh;
+}
+.lists > * {
+  -webkit-box-flex: 0;
+          flex: 0 0 auto;
+  margin-left: 10px;
+}
+.lists::after {
+  content: '';
+  -webkit-box-flex: 0;
+          flex: 0 0 10px;
+}
+
+.list {
+  width: 300px;
+  height: calc(100% - 20px);
+  padding-top: 10px;
+}
+.list > * {
+  background-color: #e2e4e6;
+  color: #333;
+  padding: 0 10px;
+}
+.list header {
+  line-height: 36px;
+  font-size: 16px;
+  font-weight: bold;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.list footer {
+  line-height: 10px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  color: #888;
+}
+.list ul {
+  list-style: none;
+  margin: 0;
+  max-height: calc(100% - 36px - 36px);
+  overflow-y: auto;
+}
+.list ul li {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 3px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+.list ul li:not(:last-child) {
+  margin-bottom: 10px;
+}
+.list ul li img {
+  display: block;
+  width: calc(100% + 2 * 10px);
+  margin: -10px 0 10px -10px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+</style>
+  </head>
+  
+  <body>
+  
+  <div class="ui">
+	<!--nav class="navbar app"><a href="https://trello-focus.herokuapp.com/">Trello focus</a></nav-->
+	<div class="lists">
+    {% for board in boards %}
+		<div class="list">
+			<header onclick=" window.open('{{ board.url }}','_blank')">{{ board.name }}</header>
+			<ul>
+		{% for card in board.cards %}
+		<li onclick=" window.open('{{ card.url }}','_blank')">
+		    {{ card.name }}
+		</li>
+		<!--li>
+			<blockquote class="trello-card-compact">
+			  <a href="{{ card.url }}">{{ card.name }}</a>
+			</blockquote>		  
+	    </li-->
+		{% endfor %}
+			</ul>
+			<footer>&nbsp;</footer>
+		</div>
+    {% endfor %}
+	</div>
+</div>
+
+	
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  </body>
+</html>
+
