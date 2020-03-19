@@ -1,6 +1,6 @@
 Flask==1.0.2
 Jinja2==2.10
-requests==2.18.4
+requests==2.20.0
 
 # requirements for Heroku
 psycopg2==2.7.3.1
