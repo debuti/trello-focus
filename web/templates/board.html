@@ -15,14 +15,17 @@
       <div class="ui" id="ui">
         <nav class="navbar app" id="navbar">
             <div>Trello focus</div>
-            <p>Trello card style</p>
+            &nbsp;
+            &nbsp;
+            <div style="font-size: 0.7em;">Trello card style</div>;
             <label class="switch">
                 <input type="checkbox" 
-                       onclick="window.location.replace("{{ url_for('focus') }}"+"?"+"token="+"{{ token }}"+"&"+"embed="+document.getElementById("embed").value)" 
+                       onclick="window.location.replace("{{ url_for('focus') }}"+"?"+"token="+"{{ token }}"+"&"+"embed="+document.getElementById("embed").value)"
                        id="embed" {% if embed %}checked{% endif %}>
                 <span class="slider round"></span>
             </label>
-            <p>Color scheme</p>
+            &nbsp;
+            <div style="font-size: 0.7em;">Color scheme</div>
             <div class="box red" 
                  onclick="document.getElementById('ui').style.backgroundColor=#FF0000;"></div>
         </nav>

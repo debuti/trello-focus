@@ -33,7 +33,7 @@ body {
   display: -webkit-box;
   display: flex;
   overflow-x: auto;
-  height: calc(100% - 40px);
+  height: calc(100vh - 40px);
 }
 .lists > * {
   -webkit-box-flex: 0;
@@ -160,8 +160,9 @@ input:checked + .slider:before {
 }
 
 .box{
-	width:100px;
-	height:100px;
+	width:20px;
+	height:20px;
+    border-radius:5px;
 }
  
 .red{
