@@ -23,7 +23,7 @@
   <body>
       <div class="ui" id="ui">
         <nav class="navbar app" id="navbar">
-            <div>Trello focus</div>
+            <div onclick="window.location.replace('{{ url_for('index') }}')">Trello focus</div>
             &nbsp;
             &nbsp;
             &nbsp;
@@ -40,6 +40,9 @@
             <div class="box" style="background:#009999;" onclick='changeColorScheme("#009999", "#006666")'></div>
             <div class="box" style="background:#cc0000;" onclick='changeColorScheme("#cc0000", "#993333")'></div>
             <div class="box" style="background:#0033cc;" onclick='changeColorScheme("#0033cc", "#003399")'></div>
+            <div class="box" style="background:#cc00cc;" onclick='changeColorScheme("#cc00cc", "#9900cc")'></div>
+            <div class="box" style="background:#ffff99;" onclick='changeColorScheme("#ffff99", "#cccc00")'></div>
+            <div class="box" style="background:#999966;" onclick='changeColorScheme("#999966", "#666633")'></div>
         </nav>
         <div class="lists">
             {% for board in boards %}
